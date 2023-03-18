@@ -625,11 +625,11 @@ a#scrollUp:hover {background: #000;}
 .panel-heading a::before {content: "\e681";cursor: pointer;display: block;font-family: pe-icon-7-stroke;font-size: 15px;left: 10px;position: absolute;top: 14px;}
 .panel-heading a.collapsed::before {content: " \e623";}
 .our-skill {overflow: hidden;padding-top: 60px;}
-.progress {height: 10px;margin-bottom: 70px;overflow: visible;position: relative;}
-.our-skill .progress:last-child {margin-bottom: 0;}
-.progress-bar {background-color: #e0e0e0;border-radius: 3px;}
+
+.our-skill:last-child {margin-bottom: 0;}
+
 .skill-title {font-size: 14px;font-weight: 700;position: absolute;text-transform: uppercase;top: -35px;}
-.progress-bar span {border: 1px solid #aaa;border-radius: 50%;font-size: 13px;height: 30px;line-height: 30px;position: absolute;right: 40px;text-align: center;top: -50px;width: 30px;}
+	
 .product-arrow ul li {display: inline-block;margin: 0 1px;}
 .product-arrow ul li a {border: 1px solid #fff;color: #fff;display: block;font-size: 16px;height: 25px;line-height: 22px;text-align: center;width: 25px;}
 .product-info h2 {color: #000;font-size: 30px;}
