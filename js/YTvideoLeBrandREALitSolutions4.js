@@ -107,7 +107,7 @@ function HideGetPaymentButton(vidbutid) {
     ShowAlertYouJustEarned(vidbutid);
 var prbarvalue      = document.getElementById('tasksprogressbar'); 
 var getNameProperty = prbarvalue.getAttribute('aria-valuenow')*1;
-var newwidthpercent = getNameProperty+20;
+var newwidthpercent = getNameProperty+14.28571428571429;
     prbarvalue.setAttribute("aria-valuenow",newwidthpercent);
 
     document.getElementById('progresspercentshow').innerHTML = newwidthpercent;
