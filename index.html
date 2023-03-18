@@ -1,8 +1,29 @@
-
-
-
- 
-    <!-- Fixed navbar -->
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="keywords" content="Videos, Youtube, Subscription, Vanilla JavaScript" />
+  <meta name="description" content="Working on Youtube IFrame Player API using Bootstrap, vanilla Javascript and special layered techniques to provide subscription type services base on video." />
+  <meta name="author" content="Le Brand Real IT Solutions" />
+  <meta name="generator" content="WebsifyGR" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/scrollbtn.css">
+  <link rel="stylesheet" type="text/css" href="css/main-style.css">
+  <link rel="stylesheet" type="text/css" href="css/template.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  </head>
+<body>
+<button onclick="topFunction()" id="gototop" title="Go to top"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16"><path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/></svg></button>		
+<div id="mainWrapper">
+<div id="contentMainWrapper">
+<div class="mainContainer ">
+<div class="body-content">
+<div class="container">												
+<div id="centercontent-wrapper" class="single-column">
+<div class="centerColumn" id="pageTwo">
+<div id="pageTwoMainContent" class="content">
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -12,14 +33,136 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">VideoR</a>
+          <a class="navbar-brand" href="index.html">Le Brand REAL IT Solutions - VideoR</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-			<li><a href="index.html">Tasks</a></li>
+			<li><a href="index.html">Videos</a></li>
 			<li><a href="index.html">Finance</a></li>
-            <li><a href="index.html">Help</a></li>			
+			<li><a href="index.html">Services</a></li>
+            <li><a href="index.html">Help</a></li>
+			
           </ul>
+		  <ul class="nav navbar-nav pull-right">
+			<li><a href="index.html">REGISTER ACCOUNT</a></li>
+            <li><a href="index.html">LOGIN ACCOUNT</a></li>
+		  </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+   <div class="container theme-showcase" role="main" style="padding-bottom:25px;margin-top:20px;">
+      <div class="page-header">
+        <h2>Videos <span id="dailytaskscounter" class="label label-warning">5</span></h2>
+		<h2>Points <span class="label label-success"><span id="dailytotalprofit">0</span></span></h2>
+      </div>
+      <div class="progress">
+        <div id="tasksprogressbar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"><span id="progresspercentshow">0</span></div>
+      </div>	  
+    <div class="row" style="margin-top:-50px;">		
+        <div id="watchvid1">
+          <div  class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title"><button style="display:none" id="playvideo1" onclick="playVideo(1); CountDownVideoProgress(1);ShowAlertPlayingVideo(1);" type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> PLAY video 1</button> <button onclick="HideGetPaymentButton(1)" id="vidbut1" style="display: none" type="button" class="btn btn-lg btn-primary">GET <span id="profitvid1">10</span> points</button></h3>
+            </div>
+            <div class="panel-body">
+      <div class="progress">
+        <div id="playerprogressbar1" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"><span id="playerprogressbarshow1">0</span></div>
+      </div>			
+              <div class="embed-responsive embed-responsive-16by9" style="margin-top:-60px;">
+              <div id="videolayer1" onclick="ShowAlertGeneral(1,3,1)" style="position: absolute;height:100%;width:100%;top:0px;left:0px;z-index:99998;background:white;opacity:0.001"></div>			  
+              <div id="infolayer1" style="position: absolute;height:60px;width:100%;top:0px;left:0px;z-index:99991;background:black;opacity:100"></div>  
+				<div id="player1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="watchvid2" style="display:none">
+          <div  class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title"><button style="display:none" id="playvideo2" onclick="playVideo(2); CountDownVideoProgress(2);ShowAlertPlayingVideo(2);" type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> PLAY video 2</button> <button onclick="HideGetPaymentButton(2)" id="vidbut2" style="display: none" type="button" class="btn btn-lg btn-primary">GET <span id="profitvid2">10</span> points</button></h3>
+            </div>
+            <div class="panel-body">
+      <div class="progress">
+        <div id="playerprogressbar2" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"><span id="playerprogressbarshow2">0</span></div>
+      </div>			
+              <div class="embed-responsive embed-responsive-16by9" style="margin-top:-60px;">
+			  <div id="videolayer2" onclick="ShowAlertGeneral(1,3,2)" style="position: absolute;height:100%;width:100%;top:0px;left:0px;z-index:99998;background:white;opacity:0.001"></div>			  
+              <div id="infolayer2" style="position: absolute;height:60px;width:100%;top:0px;left:0px;z-index:99991;background:black;opacity:100"></div>  
+				<div id="player2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="watchvid3" style="display:none">
+          <div  class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title"><button style="display:none" id="playvideo3" onclick="playVideo(3); CountDownVideoProgress(3);ShowAlertPlayingVideo(3);" type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> PLAY video 3</button>  <button onclick="HideGetPaymentButton(3)" id="vidbut3" style="display: none" type="button" class="btn btn-lg btn-primary">GET <span id="profitvid3">10</span> points</button></h3>
+            </div>
+            <div class="panel-body">
+      <div class="progress">
+        <div id="playerprogressbar3" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"><span id="playerprogressbarshow3">0</span></div>
+      </div>			
+              <div class="embed-responsive embed-responsive-16by9" style="margin-top:-60px;">
+			  <div id="videolayer3" onclick="ShowAlertGeneral(1,3,3)" style="position: absolute;height:100%;width:100%;top:0px;left:0px;z-index:99998;background:white;opacity:0.001"></div>			  
+              <div id="infolayer3" style="position: absolute;height:60px;width:100%;top:0px;left:0px;z-index:99991;background:black;opacity:100"></div>  
+				<div id="player3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="watchvid4" style="display:none">
+          <div  class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title"><button style="display:none" id="playvideo4" onclick="playVideo(4); CountDownVideoProgress(4);ShowAlertPlayingVideo(4);" type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> PLAY video 4</button>  <button onclick="HideGetPaymentButton(4)" id="vidbut4" style="display: none" type="button" class="btn btn-lg btn-primary">GET <span id="profitvid4">10</span> points</button></h3>
+            </div>
+            <div class="panel-body">
+      <div class="progress">
+        <div id="playerprogressbar4" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"><span id="playerprogressbarshow4">0</span></div>
+      </div>			
+              <div class="embed-responsive embed-responsive-16by9" style="margin-top:-60px;">
+			  <div id="videolayer4" onclick="ShowAlertGeneral(1,3,4)" style="position: absolute;height:100%;width:100%;top:0px;left:0px;z-index:99998;background:white;opacity:0.001"></div>			  
+              <div id="infolayer4" style="position: absolute;height:60px;width:100%;top:0px;left:0px;z-index:99991;background:black;opacity:100"></div>  
+				<div id="player4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="watchvid5" style="display:none">
+          <div  class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title"><button style="display:none" id="playvideo5" onclick="playVideo(5); CountDownVideoProgress(5);ShowAlertPlayingVideo(5);" type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> PLAY video 5</button>  <button onclick="HideGetPaymentButton(5)" id="vidbut5" style="display: none" type="button" class="btn btn-lg btn-primary">GET <span id="profitvid5">10</span> points</button></h3>
+            </div>
+            <div class="panel-body">
+      <div class="progress">
+        <div id="playerprogressbar5" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"><span id="playerprogressbarshow5">0</span></div>
+      </div>			
+              <div class="embed-responsive embed-responsive-16by9" style="margin-top:-60px;">
+			  <div id="videolayer5" onclick="ShowAlertGeneral(1,3,5)" style="position: absolute;height:100%;width:100%;top:0px;left:0px;z-index:99998;background:white;opacity:0.001"></div>			  
+              <div id="infolayer5" style="position: absolute;height:60px;width:100%;top:0px;left:0px;z-index:99991;background:black;opacity:100"></div>  
+				<div id="player5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div> <!-- /container -->	
+<!-- INFORMATIONAL ALERT SECTION BEGIN Le Brand REAL IT Solutions -->
+<!-- ########################################################################################################################################################### -->
+      <div id="playingvideoplaceholder"></div>
+	  <div id="gotprofitplaceholder"></div>
+	  <div id="generalalertplaceholder"></div>	  
+<!-- ########################################################################################################################################################### -->
+<!-- INFORMATIONAL ALERT SECTION END Le Brand REAL IT Solutions -->	
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+<script type="text/javascript" src="js/YTvideoLeBrandREALitSolutions.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/scrollbtn.js"></script>
+</body>
+</html>
