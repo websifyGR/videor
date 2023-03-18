@@ -91,7 +91,16 @@ function CountDownVideoProgress(container) {
     vidnewwidthpercent = vidgetNameProperty+5;
     vidprbarvalue.setAttribute("aria-valuenow",vidnewwidthpercent); 
     vidprbarvalue.setAttribute("style","width:" + vidnewwidthpercent + "%");
-	document.getElementById('playerprogressbarshow' + container).innerHTML = vidnewwidthpercent; 
+	document.getElementById('playerprogressbarshow' + container).innerHTML = vidnewwidthpercent;
+
+    var prbarvalue      = document.getElementById('tasksprogressbar'); 
+    var getNameProperty = prbarvalue.getAttribute('aria-valuenow')*1;
+    var newwidthpercent = getNameProperty+0.7142857142857145;
+    prbarvalue.setAttribute("aria-valuenow",newwidthpercent);
+    document.getElementById('progresspercentshow').innerHTML = newwidthpercent;
+    prbarvalue.setAttribute("style","width:" + newwidthpercent + "%");
+
+	
 }, 1000);
 }
 
@@ -105,13 +114,16 @@ function HideGetPaymentButton(vidbutid) {
 	var butprice   = document.getElementById('profitvid' + vidbutid).innerHTML*1;
 	var profit     = total + butprice;
     ShowAlertYouJustEarned(vidbutid);
-var prbarvalue      = document.getElementById('tasksprogressbar'); 
-var getNameProperty = prbarvalue.getAttribute('aria-valuenow')*1;
-var newwidthpercent = getNameProperty+14.28571428571429;
+	
+	/*
+    var prbarvalue      = document.getElementById('tasksprogressbar'); 
+    var getNameProperty = prbarvalue.getAttribute('aria-valuenow')*1;
+    var newwidthpercent = getNameProperty+14.28571428571429;
     prbarvalue.setAttribute("aria-valuenow",newwidthpercent);
-
     document.getElementById('progresspercentshow').innerHTML = newwidthpercent;
     prbarvalue.setAttribute("style","width:" + newwidthpercent + "%");
+	*/
+	
     document.getElementById('dailytaskscounter').innerHTML = tskcounter -1;	
 	document.getElementById('dailytotalprofit').innerHTML = '';
 	document.getElementById('dailytotalprofit').innerHTML = profit;	
