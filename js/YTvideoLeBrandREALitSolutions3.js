@@ -117,7 +117,7 @@ var newwidthpercent = getNameProperty+20;
 	document.getElementById('dailytotalprofit').innerHTML = profit;	
     document.getElementById('vidbut' + vidbutid).style.display = "none";
 	document.getElementById('watchvid' + vidbutid).style.display = "none";
-	if (nextvideo <= 5){
+	if (nextvideo <= 7){
 	document.getElementById('watchvid' + nextvideo).style.display = "block";
     }
 }
