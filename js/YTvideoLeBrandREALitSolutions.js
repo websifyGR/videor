@@ -153,25 +153,19 @@ var newwidthpercent = getNameProperty+20;
         player6 = new YT.Player('player6', {height: '390',width: '640',videoId: video6,playerVars: {'playsinline': 1,'disablekb': 1,'controls': 0,'showinfo':0},events: {'onReady': showPlayButton(6)}});
 		player7 = new YT.Player('player7', {height: '390',width: '640',videoId: video6,playerVars: {'playsinline': 1,'disablekb': 1,'controls': 0,'showinfo':0},events: {'onReady': showPlayButton(7)}}); 
 	  }
-
+	  
       function onPlayerReady(event) {
+		//document.getElementById('playvideo1').style.display = "block";  
       //    event.target.playVideo();
       }
-
  
-      function onPlayerStateChange1(event) {
-          done = false;	  
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo1, 20000);
-		 // CountDownVideoProgress(1);
-          done = true;
-        }
-      }
+
 
       function showPlayButton(buttonNumber){ 
 	    if (buttonNumber==1){
 	      //setTimeout(showFirstPlayButton(buttonNumber), 5000);
 			setTimeout(() => { document.getElementById('playvideo' + buttonNumber).style.display = "block"; }, 5000);
+			//setTimeout(() => { document.getElementById('playvideo' + buttonNumber).style.display = "block"; }, 50);
 	    }else{
             document.getElementById('playvideo' + buttonNumber).style.display = "block";
 	    }
@@ -240,6 +234,15 @@ var newwidthpercent = getNameProperty+20;
 	      player1.stopVideo();	
        }	  
       }
+	  /*
+      function onPlayerStateChange1(event) {
+          done = false;	  
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo1, 20000);
+		 // CountDownVideoProgress(1);
+          done = true;
+        }
+      }	
 	  
       function onPlayerStateChange2(event) {
           done = false;	  
@@ -276,3 +279,94 @@ var newwidthpercent = getNameProperty+20;
           done = true;
         }
       }
+	  */
+	  
+/*
+
+Για δοκιμή με κλάση TODO 
+
+// Φτιάχνω μερικά αντικείμενα data-id= video KEY, ID
+// Οι παρακάτω div θα γίνουν δυναμικά με javascript
+// #################################################
+// <div data-id="video KEY" class="video"></div>
+// <div data-id="video KEY" class="video"></div>
+// <div data-id="video KEY" class="video"></div>
+
+//Φτιάχνω την κλάση
+// ################
+var Videos = (function() {
+    // ΜΕΤΑΒΛΗΤΕΣ ΚΑΙ ΠΙΝΑΚΕΣ
+    var $   = jQuery,   // Ορίζω το $ ως jQuery
+    players = [],       // Πίνακας players (για τον ξεχωριστό έλεγχο κάθε player)
+    queue   = [];       // Πίνακας με τα videos (όταν είναι έτοιμο το API, κάνω loop εδώ και δημιουργώ το YT player)
+
+    // Κατασκευαστική
+    function Videos() {}
+
+
+    // Προσθήκη αντικειμένων στον πίνακα queue
+    Videos.prototype.add = function($video) {
+        queue.push($video);
+    };
+
+    // Φόρτωση του API
+    Videos.prototype.loadApi = function() {
+        // Χρήση του jQuery get script για φόρτωση του API. Αν δε παίζει αυτό θα δούμε την .load
+        $.getScript("//www.youtube.com/iframe_api", function() {
+            // Μόλις φορτώσει το YouTubeIframeAPI (onYouTubeIframeAPIReady) φτιάχνω function
+            window.onYouTubeIframeAPIReady = function() {
+                queue.forEach(function($video) {
+                    // Δημιουργία ενός player
+                    var player = new YT.Player($video.get(0), {
+                        'width': "100%",
+                        'height': "100%",
+                        'videoId': $video.data("id")
+                    });
+                    // Προσθήκη του κάθε αντικειμένου player στον πίνακα players
+                    players.push(player);
+                });
+            };
+        });
+    };
+
+    return Videos;
+
+})();
+
+// Χρησιμοποιώ την κλάση για να πάρω όλα τα video IDs από τις
+// div και να προσθέσω αντικείμενα στις players = [], queue   = [] 
+// με τη μέθοδο add
+// Μόλις φορτώσει το YouTubeIframeAPI, η  
+// ################################################################
+var videos = new Videos();
+$('.video').each( function () {
+    videos.add( $(this) );
+})
+videos.loadApi();
+  
+*/
+
+
+
+
+/*
+dynamically create players
+
+var playerInfoList = [{id:'player',height:'390',width:'640',videoId:'M7lc1UVf-VE'},{id:'player1',height:'390',width:'640',videoId:'M7lc1UVf-VE'}];
+
+      function onYouTubeIframeAPIReady() {
+        if(typeof playerInfoList === 'undefined')
+           return; 
+
+        for(var i = 0; i < playerInfoList.length;i++) {
+          var curplayer = createPlayer(playerInfoList[i]);
+        }   
+      }
+      function createPlayer(playerInfo) {
+          return new YT.Player(playerInfo.id, {
+             height: playerInfo.height,
+             width: playerInfo.width,
+             videoId: playerInfo.videoId
+          });
+      }
+*/
